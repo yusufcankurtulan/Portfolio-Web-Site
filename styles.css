@@ -131,18 +131,17 @@ body {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    text-align: center;
+    text-align: center; /* sola yaslı istiyorsan 'left' yap */
 }
 
-.top-line {
-    display: inline-block;
-    margin-bottom: 0.3rem;
+.hero-title .line {
+    display: block;
 }
 
-.highlight {
+.hero-title .highlight {
     color: #60a5fa;
-    display: inline-block;
 }
+
 
 
 .highlight::after {
