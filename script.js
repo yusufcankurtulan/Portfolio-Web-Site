@@ -513,11 +513,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // new ParticleBackground();
     
     // Optional: Add typing animation to hero title
-    // const heroTitle = document.querySelector('.hero-title');
-    // if (heroTitle) {
-    //     const originalText = heroTitle.textContent || '';
-    //     new TypingAnimation(heroTitle, originalText, 50);
-    // }
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent || '';
+        heroTitle.textContent = '';
+        new TypingAnimation(heroTitle, originalText, 50);
+    }
     
     // Add animation classes to elements
     const animationManager = new AnimationManager();
