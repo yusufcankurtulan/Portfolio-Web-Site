@@ -131,15 +131,7 @@ body {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    text-align: center; /* sola yaslı istiyorsan 'left' yap */
-}
-
-.hero-title .line {
-    display: block;
-}
-
-.hero-title .highlight {
-    color: #60a5fa;
+    text-align: left; /* sola yaslı istiyorsan 'left' yap */
 }
 
 
