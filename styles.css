@@ -131,7 +131,7 @@ body {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    text-align: left; /* veya center, tercihe göre */
+    text-align: center;
 }
 
 .top-line {
