@@ -513,11 +513,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // new ParticleBackground();
     
     // Optional: Add typing animation to hero title
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent || '';
-        new TypingAnimation(heroTitle, originalText, 50);
-    }
+    // const heroTitle = document.querySelector('.hero-title');
+    // if (heroTitle) {
+    //     const originalText = heroTitle.textContent || '';
+    //     new TypingAnimation(heroTitle, originalText, 50);
+    // }
     
     // Add animation classes to elements
     const animationManager = new AnimationManager();
@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.innerHTML = translations[lang].nav[i];
         });
         // Hero
-        document.querySelector('.hero-title').innerHTML = translations[lang].heroTitle;
+        document.querySelector('.hero-title').textContent = translations[lang].heroTitle;
         document.querySelector('.hero-subtitle').textContent = translations[lang].heroSubtitle;
         document.querySelector('.hero-description').textContent = translations[lang].heroDescription;
         document.querySelector('.hero-buttons .btn-primary').textContent = translations[lang].heroBtn1;
