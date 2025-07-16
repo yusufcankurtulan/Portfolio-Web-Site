@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusucan kurtulan - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home"><img src="logo.png" alt="Logo" style="height:40px; width:auto;"></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button id="lang-toggle" class="btn btn-secondary" style="margin-left: 1rem;">TR</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Yusufcan Kurtulan</span>
+                </h1>
+                <p class="hero-subtitle">Full Stack & Mobile Developer</p>
+                <p class="hero-description">
+                    Fullstack & mobile developer building scalable digital products with clean architecture, modern UI/UX, and real-world impact. Experienced in Android (Kotlin, Jetpack Compose), web development (JavaScript, React, Node.js), and backend systems. Passionate about writing maintainable code, improving user experience, and solving complex problems with creative and efficient solutions. Open to freelance and full-time opportunities.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="profile_photo.jpg" alt="Profile Photo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Software Development student at Yeditepe University. I have completed internships at Erka, Horoz, and currently at İSBAK. Experienced in Android (Kotlin, Jetpack Compose), web development (JavaScript, React, Node.js), and backend systems. Passionate about clean code, modern UI/UX, and impactful solutions.
+                    </p>
+                    <p>
+                        I am actively building my skills through internships and personal projects, collaborating with teams, and delivering real-world solutions. I am open to freelance and full-time opportunities.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>3</h3>
+                            <p>Experiences</p>
+                        </div>
+                        <div class="stat">
+                            <h3>5+</h3>
+                            <p>Projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-date">Jul 2023 – Sep 2023</div>
+                    <div class="experience-content">
+                        <h3>HOROZ LOJISTIK KARGO HIZMETLERI VE TIC. A.S.</h3>
+                        <h4>Bağcılar, Istanbul</h4>
+                        <p>
+                            - Performed manual functional and user acceptance testing (UAT) for a price software corporate project.<br>
+                            - Prepared bug and test result tools for the development team, improving product outcomes before deployment.<br>
+                            - Analyzed, logged, and followed up on issues and improvement requests.<br>
+                            - Collaborated with the software and business units and wrote test automation scripts.
+                        </p>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-date">Feb 2021 – May 2021</div>
+                    <div class="experience-content">
+                        <h3>ERKA ETKİNLİK VE TURİZM A.Ş.</h3>
+                        <h4>Beyoğlu, Istanbul</h4>
+                        <p>
+                            - Provided technical support and consultancy to sustainable hotels with over 90% booking.com satisfaction.<br>
+                            - Supported the digitalization of hotel operations, including online reservation, channel management, and structured database.<br>
+                            - Created and managed the hotel’s digital presence, project management, and training.<br>
+                            - Played a key role in the adoption of technology solutions for hotel staff and guests.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><i class="fas fa-code"></i><span>Kotlin</span></div>
+                        <div class="skill-item"><i class="fab fa-java"></i><span>Java</span></div>
+                        <div class="skill-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                        <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                        <div class="skill-item"><i class="fas fa-mobile-alt"></i><span>Flutter</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><i class="fab fa-react"></i><span>React</span></div>
+                        <div class="skill-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="skill-item"><i class="fas fa-database"></i><span>Firebase</span></div>
+                        <div class="skill-item"><i class="fas fa-image"></i><span>Adobe Photoshop</span></div>
+                        <div class="skill-item"><i class="fas fa-photo-video"></i><span>Adobe After Effects</span></div>
+                        <div class="skill-item"><i class="fas fa-photo-video"></i><span>Adobe Premiere</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><i class="fas fa-language"></i><span>English (B2+)</span></div>
+                        <div class="skill-item"><i class="fas fa-language"></i><span>Turkish (Native)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Academify Mobile App</h3>
+                        <p>Developed a Kotlin-based university mobile app providing academic info, news, and event tracking. Features include personalized notifications, event calendar, and student club management. Used Firebase for backend and authentication.</p>
+                        <div class="project-tech">
+                            <span>Kotlin</span>
+                            <span>Firebase</span>
+                            <span>Android</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yusufcankurtulan/Academify" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>TeamUp Mobile App</h3>
+                        <p>Developed a Kotlin-based social platform that matches football players to optimize matches. Major features: real-time team matching, player skill rating, and location-based search. Used Firebase for backend and authentication. Designed with Jetpack Compose for modern UI/UX.</p>
+                        <div class="project-tech">
+                            <span>Kotlin</span>
+                            <span>Firebase</span>
+                            <span>Android</span>
+                            <span>Jetpack Compose</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yusufcankurtulan/TeamUp" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>BlockBlash</h3>
+                        <p>Developed a simple block breaking game with crash/explosion mechanics as part of an internship application. The project focuses on core mechanics and does not include level design or scoring. Built with C#, Unity, and Mathematica.</p>
+                        <div class="project-tech">
+                            <span>C#</span>
+                            <span>Unity</span>
+                            <span>Mathematica</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yusufcankurtulan/BlockBlash" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's work together!</h3>
+                    <p>I'm always interested in new opportunities and exciting projects. 
+                       Feel free to reach out if you'd like to collaborate or just say hello.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>yusufcan.kurtulan@gmail.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Istanbul, Turkey</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/yusufcan-kurtulan" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/yusufcankurtulan" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/yusufcankurtulan/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Yusufcan Kurtulan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
