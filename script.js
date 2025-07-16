@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         en: {
             nav: ['Home', 'About', 'Experience', 'Skills', 'Projects', 'Contact'],
-            heroTitle: "Hi,<br>I'm <span class='highlight'>Yusufcan Kurtulan</span>",
+            heroTitle: "Hi,<br><span>I'm <span class='highlight'>Yusufcan Kurtulan</span></span>",
             heroSubtitle: 'Full Stack & Mobile Developer',
             heroDescription: 'Fullstack & mobile developer building scalable digital products with clean architecture, modern UI/UX, and real-world impact. Experienced in Android (Kotlin, Jetpack Compose), web development (JavaScript, React, Node.js), and backend systems. Passionate about writing maintainable code, improving user experience, and solving complex problems with creative and efficient solutions. Open to freelance and full-time opportunities.',
             heroBtn1: 'View My Work',
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         tr: {
             nav: ['Anasayfa', 'Hakkımda', 'Deneyim', 'Yetenekler', 'Projeler', 'İletişim'],
-            heroTitle: "Merhaba,<br>ben <span class='highlight'>Yusufcan Kurtulan</span>",
+            heroTitle: "Merhaba,<br><span>ben <span class='highlight'>Yusufcan Kurtulan</span></span>",
             heroSubtitle: 'Full Stack & Mobil Geliştirici',
             heroDescription: 'Temiz mimari, modern UI/UX ve gerçek dünya etkisiyle ölçeklenebilir dijital ürünler geliştiren fullstack & mobil geliştirici. Android (Kotlin, Jetpack Compose), web geliştirme (JavaScript, React, Node.js) ve backend sistemlerinde deneyimli. Sürdürülebilir kod yazmaya, kullanıcı deneyimini iyileştirmeye ve yaratıcı, verimli çözümlerle karmaşık problemleri çözmeye tutkulu. Freelance ve tam zamanlı fırsatlara açığım.',
             heroBtn1: 'Projelerim',
