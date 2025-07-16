@@ -127,17 +127,23 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
-    white-space: normal; /* Tek satıra sığdığı sürece bölünmesin */
+    text-align: left; /* veya center, tercihe göre */
+}
+
+.top-line {
+    display: inline-block;
+    margin-bottom: 0.3rem;
 }
 
 .highlight {
     color: #60a5fa;
-    display: inline;
+    display: inline-block;
 }
+
 
 .highlight::after {
     content: '';
