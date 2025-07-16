@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         tr: {
             nav: ['Anasayfa', 'Hakkımda', 'Deneyim', 'Yetenekler', 'Projeler', 'İletişim'],
-            heroTitle: "Merhaba, ben <span class='highlight'>Yusufcan Kurtulan</span>",
+            heroTitle: "Merhaba, ben Yusufcan Kurtulan",
             heroSubtitle: 'Full Stack & Mobil Geliştirici',
             heroDescription: 'Temiz mimari, modern UI/UX ve gerçek dünya etkisiyle ölçeklenebilir dijital ürünler geliştiren fullstack & mobil geliştirici. Android (Kotlin, Jetpack Compose), web geliştirme (JavaScript, React, Node.js) ve backend sistemlerinde deneyimli. Sürdürülebilir kod yazmaya, kullanıcı deneyimini iyileştirmeye ve yaratıcı, verimli çözümlerle karmaşık problemleri çözmeye tutkulu. Freelance ve tam zamanlı fırsatlara açığım.',
             heroBtn1: 'Projelerim',
