@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         en: {
             nav: ['Home', 'About', 'Experience', 'Skills', 'Projects', 'Contact'],
-            heroTitle: "Hi,<br><span>I'm <span class='highlight'>Yusufcan Kurtulan</span></span>",
+            heroTitle: "Hi,<br><span>I'm <br><span><span class='highlight'>Yusufcan Kurtulan</span></span>",
             heroSubtitle: 'Full Stack & Mobile Developer',
             heroDescription: 'Fullstack & mobile developer building scalable digital products with clean architecture, modern UI/UX, and real-world impact. Experienced in Android (Kotlin, Jetpack Compose), web development (JavaScript, React, Node.js), and backend systems. Passionate about writing maintainable code, improving user experience, and solving complex problems with creative and efficient solutions. Open to freelance and full-time opportunities.',
             heroBtn1: 'View My Work',
