@@ -128,9 +128,13 @@ body {
 
 .hero-title {
     font-size: 3.5rem;
-    font-weight: 200;
+    font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
+}
+
+.hero-title .name-line {
+    white-space: nowrap;
 }
 
 .highlight {
