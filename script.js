@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Optional: Add typing animation to hero title
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        const originalText = heroTitle.textContent || '';
+        const originalText = translations[currentLang].heroTitle;
         heroTitle.textContent = '';
         new TypingAnimation(heroTitle, originalText, 50);
     }
