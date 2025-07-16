@@ -625,7 +625,11 @@ document.addEventListener('DOMContentLoaded', () => {
             el.innerHTML = translations[lang].nav[i];
         });
         // Hero
-        document.querySelector('.hero-title').textContent = translations[lang].heroTitle;
+        const heroTitleEl = document.querySelector('.hero-title');
+        if (heroTitleEl) {
+            heroTitleEl.textContent = '';
+            new TypingAnimation(heroTitleEl, translations[lang].heroTitle, 50);
+        }
         document.querySelector('.hero-subtitle').textContent = translations[lang].heroSubtitle;
         document.querySelector('.hero-description').textContent = translations[lang].heroDescription;
         document.querySelector('.hero-buttons .btn-primary').textContent = translations[lang].heroBtn1;
