@@ -402,7 +402,22 @@ section {
 
 /* Skills Section */
 .skills {
-    background: #1f2937;
+    background: transparent;
+    position: relative;
+}
+
+.skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('dummy.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
 }
 
 .skills-grid {
@@ -460,7 +475,22 @@ section {
 
 /* Projects Section */
 .projects {
-    background: #1f2937;
+    background: transparent;
+    position: relative;
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('dummy.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
 }
 
 .projects-grid {
