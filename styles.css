@@ -156,6 +156,19 @@ body {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    position: relative;
+}
+
+.hero-buttons::after {
+    display: none;
+}
+
+.hero-content::after {
+    display: none;
+}
+
+.hero::after {
+    display: none;
 }
 
 .btn {
