@@ -448,17 +448,19 @@ section {
     transition: all 0.3s ease;
     cursor: pointer;
     border: 2px solid transparent;
+    position: relative;
 }
 
 .skill-item:hover {
     background: #4b5563;
     border-color: #60a5fa;
+    box-shadow: 0 0 16px 2px #60a5fa80;
     color: #e5e7eb;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(96, 165, 250, 0.2);
 }
-.skill-item:hover span {
-    color: #e5e7eb !important;
+
+.skill-item:hover i {
+    transform: rotate(360deg) scale(1.2);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skill-item i {
@@ -466,6 +468,7 @@ section {
     color: #60a5fa;
     margin-bottom: 0.5rem;
     display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skill-item span {
