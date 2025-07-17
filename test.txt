@@ -1,0 +1,2 @@
+This is a test file to demonstrate the push script.
+Created to test the easy GitHub push functionality. 
