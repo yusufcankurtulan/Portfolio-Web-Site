@@ -113,7 +113,10 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: #111827;
+    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('dummy.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: white;
     position: relative;
 }
@@ -219,104 +222,7 @@ body {
     align-items: center;
 }
 
-/* Tech-themed hero with animated icons */
-.tech-hero-container {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.floating-icons {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.icon-item {
-    position: absolute;
-    font-size: 2rem;
-    color: #60a5fa;
-    animation: float 6s ease-in-out infinite;
-    animation-delay: var(--delay);
-    opacity: 0.7;
-}
-
-.icon-item:nth-child(1) { top: 20%; left: 20%; }
-.icon-item:nth-child(2) { top: 30%; right: 25%; }
-.icon-item:nth-child(3) { top: 60%; left: 15%; }
-.icon-item:nth-child(4) { top: 70%; right: 20%; }
-.icon-item:nth-child(5) { top: 40%; left: 50%; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(10deg); }
-}
-
-.hero-graphic {
-    position: relative;
-    z-index: 2;
-}
-
-.code-window {
-    background: #1f2937;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    border: 1px solid #374151;
-    min-width: 300px;
-}
-
-.window-header {
-    background: #374151;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.window-dots {
-    display: flex;
-    gap: 6px;
-}
-
-.window-dots span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #6b7280;
-}
-
-.window-dots span:nth-child(1) { background: #ef4444; }
-.window-dots span:nth-child(2) { background: #f59e0b; }
-.window-dots span:nth-child(3) { background: #10b981; }
-
-.window-title {
-    color: #9ca3af;
-    font-size: 0.9rem;
-    font-family: 'Monaco', 'Menlo', monospace;
-}
-
-.code-content {
-    padding: 20px;
-    font-family: 'Monaco', 'Menlo', monospace;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.code-line {
-    margin-bottom: 4px;
-}
-
-.code-line.indent {
-    margin-left: 20px;
-}
-
-.keyword { color: #f59e0b; }
-.variable { color: #60a5fa; }
-.string { color: #10b981; }
 
 .profile-card {
     width: 200px;
@@ -888,14 +794,7 @@ section {
         justify-content: center;
     }
     
-    .tech-hero-container {
-        height: 300px;
-    }
-    
-    .code-window {
-        min-width: 250px;
-        font-size: 0.8rem;
-    }
+
 
     .about-content {
         grid-template-columns: 1fr;
