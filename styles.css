@@ -834,10 +834,18 @@ section {
         text-align: center;
     }
     .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .hero-image {
+        order: 1;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    .hero-content {
+        order: 2;
     }
     .hero-image {
         margin-top: 1.5rem;
