@@ -28,8 +28,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(17, 24, 39, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(17, 24, 39, 0.3); /* More transparent */
+    backdrop-filter: blur(10px); /* Subtle blur for readability */
     z-index: 1000;
     transition: all 0.3s ease;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
