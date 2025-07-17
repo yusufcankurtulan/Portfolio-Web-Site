@@ -79,6 +79,12 @@ class Navigation {
                 bar.style.opacity = '1';
             }
         });
+        // Lock or unlock body scroll
+        if (this.isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     }
 
     closeMenu() {
@@ -91,6 +97,8 @@ class Navigation {
             bar.style.transform = 'none';
             bar.style.opacity = '1';
         });
+        // Always unlock body scroll when menu closes
+        document.body.style.overflow = '';
     }
 
     handleScroll() {
