@@ -1147,3 +1147,9 @@ section {
     pointer-events: none;
   }
 } 
+
+@media (max-width: 900px) {
+  .main-bg {
+    background-size: 150% auto;
+  }
+} 
