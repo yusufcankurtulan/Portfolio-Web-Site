@@ -942,11 +942,7 @@ section {
 
     /* Fix hero background image scaling */
     .hero {
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
         min-height: 100vh;
-        background-image: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('dummy.png');
     }
 
     /* Skills section: smaller items, 2 per row */
