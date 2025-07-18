@@ -1119,3 +1119,20 @@ section {
     visibility: visible !important;
     color: #e5e7eb !important;
 } 
+
+@media (max-width: 900px) {
+  .hero, .skills, .projects {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .hero::before, .skills::before, .projects::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    background: linear-gradient(rgba(17,24,39,0.7), rgba(17,24,39,0.7)), url('dummy.png') center center / cover no-repeat;
+    will-change: transform;
+    pointer-events: none;
+  }
+} 
