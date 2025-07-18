@@ -1124,7 +1124,6 @@ section {
   .hero, .skills, .projects {
     position: relative;
     overflow: hidden;
-    z-index: 1;
   }
   .hero::before, .skills::before, .projects::before {
     content: '';
