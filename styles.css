@@ -1150,6 +1150,7 @@ section {
 
 @media (max-width: 900px) {
   .main-bg {
-    background-size: 150% auto;
+    background-size: cover;
+    background-position: center top;
   }
 } 
