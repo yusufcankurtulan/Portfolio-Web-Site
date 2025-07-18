@@ -1114,6 +1114,24 @@ section {
     color: #e5e7eb !important;
 } 
 
+.main-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    background: linear-gradient(rgba(17,24,39,0.7), rgba(17,24,39,0.7)), url('dummy.png') center center / cover no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* Remove all background-image, background, background-attachment, etc. from .hero, .skills, .projects, and their pseudo-elements. */
+.hero, .skills, .projects, .hero::before, .skills::before, .projects::before {
+    background: none !important;
+    background-image: none !important;
+    background-attachment: initial !important;
+}
+
 @media (max-width: 900px) {
   .hero, .skills, .projects {
     position: relative;
