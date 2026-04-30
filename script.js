@@ -320,8 +320,139 @@ class ParticleBackground {
     }
 }
 
+const escapeHtml = (value) => {
+    if (typeof value !== 'string') return '';
+    return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+};
+
+const renderExperience = (experienceList = []) => {
+    const timeline = document.getElementById('experienceTimeline');
+    if (!timeline || !Array.isArray(experienceList) || experienceList.length === 0) return;
+
+    timeline.innerHTML = experienceList.map((experience) => {
+        const details = Array.isArray(experience.details) ? experience.details : [];
+        return `
+            <div class="experience-item">
+                <div class="experience-date">${escapeHtml(experience.date || '')}</div>
+                <div class="experience-content">
+                    <h3>${escapeHtml(experience.company || '')}</h3>
+                    <h4>${escapeHtml(experience.location || '')}</h4>
+                    <p>${details.map((detail) => `- ${escapeHtml(detail)}`).join('<br>')}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
+};
+
+const renderSkills = (skills = {}) => {
+    const grid = document.getElementById('skillsGrid');
+    if (!grid || typeof skills !== 'object') return;
+
+    const sections = [
+        { key: 'programming', title: 'Programming' },
+        { key: 'frameworks', title: 'Frameworks & Tools' },
+        { key: 'other', title: 'Other' }
+    ];
+
+    const html = sections.map((section) => {
+        const items = Array.isArray(skills[section.key]) ? skills[section.key] : [];
+        const itemHtml = items.map((item) => `<div class="skill-item"><i class="fas fa-check"></i><span>${escapeHtml(item)}</span></div>`).join('');
+        return `
+            <div class="skill-category">
+                <h3>${section.title}</h3>
+                <div class="skill-items">${itemHtml}</div>
+            </div>
+        `;
+    }).join('');
+
+    grid.innerHTML = html;
+};
+
+const renderProjects = (projects = []) => {
+    const projectsGrid = document.getElementById('projectsGrid');
+    if (!projectsGrid || !Array.isArray(projects) || projects.length === 0) return;
+
+    projectsGrid.innerHTML = projects.map((project) => {
+        const techList = Array.isArray(project.tech) ? project.tech : [];
+        const link = project.link ? `<a href="${escapeHtml(project.link)}" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>` : '';
+        return `
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="${escapeHtml(project.icon || 'fas fa-code')}"></i>
+                </div>
+                <div class="project-content">
+                    <h3>${escapeHtml(project.title || '')}</h3>
+                    <p>${escapeHtml(project.description || '')}</p>
+                    <div class="project-tech">
+                        ${techList.map((tech) => `<span>${escapeHtml(tech)}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        ${link}
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+};
+
+const applyText = (id, value) => {
+    if (typeof value !== 'string') return;
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+};
+
+const applyContent = (content) => {
+    if (!content || typeof content !== 'object') return;
+
+    applyText('heroName', content.hero?.name);
+    applyText('heroSubtitle', content.hero?.subtitle);
+    applyText('heroDescription', content.hero?.description);
+    applyText('heroPrimaryButton', content.hero?.primaryButtonText);
+    applyText('heroSecondaryButton', content.hero?.secondaryButtonText);
+
+    applyText('aboutParagraph1', content.about?.paragraph1);
+    applyText('aboutParagraph2', content.about?.paragraph2);
+    applyText('aboutExperiencesCount', content.about?.experiencesCount);
+    applyText('aboutProjectsCount', content.about?.projectsCount);
+
+    renderExperience(content.experiences);
+    renderSkills(content.skills);
+    renderProjects(content.projects);
+
+    applyText('contactIntroTitle', content.contact?.introTitle);
+    applyText('contactIntroText', content.contact?.introText);
+    applyText('contactEmail', content.contact?.email);
+    applyText('contactLocation', content.contact?.location);
+    applyText('footerText', content.footerText);
+
+    const linkedin = document.getElementById('contactLinkedin');
+    const github = document.getElementById('contactGithub');
+    const instagram = document.getElementById('contactInstagram');
+
+    if (linkedin && content.contact?.linkedin) linkedin.href = content.contact.linkedin;
+    if (github && content.contact?.github) github.href = content.contact.github;
+    if (instagram && content.contact?.instagram) instagram.href = content.contact.instagram;
+};
+
+const loadDynamicContent = async () => {
+    try {
+        const response = await fetch('content.json', { cache: 'no-store' });
+        if (!response.ok) return;
+        const content = await response.json();
+        applyContent(content);
+    } catch (error) {
+        console.error('Failed to load content.json', error);
+    }
+};
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    loadDynamicContent();
     // Initialize all classes
     new Navigation();
     new AnimationManager();

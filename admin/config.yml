@@ -1,0 +1,90 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "site_content"
+    label: "Site Content"
+    files:
+      - label: "Homepage Content"
+        name: "homepage"
+        file: "content.json"
+        format: "json"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Primary Button", name: "primaryButtonText", widget: "string" }
+              - { label: "Secondary Button", name: "secondaryButtonText", widget: "string" }
+
+          - label: "About"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Paragraph 1", name: "paragraph1", widget: "text" }
+              - { label: "Paragraph 2", name: "paragraph2", widget: "text" }
+              - { label: "Experiences Count", name: "experiencesCount", widget: "string" }
+              - { label: "Projects Count", name: "projectsCount", widget: "string" }
+
+          - label: "Experiences"
+            name: "experiences"
+            widget: "list"
+            fields:
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - label: "Details"
+                name: "details"
+                widget: "list"
+                field: { label: "Detail", name: "detail", widget: "string" }
+
+          - label: "Skills"
+            name: "skills"
+            widget: "object"
+            fields:
+              - label: "Programming"
+                name: "programming"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - label: "Frameworks"
+                name: "frameworks"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - label: "Other"
+                name: "other"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Tech Stack"
+                name: "tech"
+                widget: "list"
+                field: { label: "Technology", name: "technology", widget: "string" }
+              - { label: "GitHub Link", name: "link", widget: "string", required: false }
+              - { label: "Icon Class (FontAwesome)", name: "icon", widget: "string", required: false }
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Intro Title", name: "introTitle", widget: "string" }
+              - { label: "Intro Text", name: "introText", widget: "text" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+              - { label: "GitHub", name: "github", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+
+          - { label: "Footer Text", name: "footerText", widget: "string" }

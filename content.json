@@ -1,0 +1,116 @@
+{
+  "hero": {
+    "name": "Yusufcan Kurtulan",
+    "subtitle": "Full Stack & Mobile Developer",
+    "description": "Fullstack & mobile developer building scalable digital products with clean architecture, modern UI/UX, and real-world impact. Experienced in Android (Kotlin, Jetpack Compose), web development (JavaScript, React, Node.js), and backend systems. Passionate about writing maintainable code, improving user experience, and solving complex problems with creative and efficient solutions. Open to freelance and full-time opportunities.",
+    "primaryButtonText": "View My Work",
+    "secondaryButtonText": "Get In Touch"
+  },
+  "about": {
+    "paragraph1": "Software Development student at Yeditepe University. I have completed internships at Erka, Horoz, and currently at ISBAK. Experienced in Android (Kotlin, Jetpack Compose), web development (JavaScript, React, Node.js), and backend systems. Passionate about clean code, modern UI/UX, and impactful solutions.",
+    "paragraph2": "I am actively building my skills through internships and personal projects, collaborating with teams, and delivering real-world solutions. I am open to freelance and full-time opportunities.",
+    "experiencesCount": "3",
+    "projectsCount": "10+"
+  },
+  "experiences": [
+    {
+      "date": "Jul 2023 - Sep 2023",
+      "company": "HOROZ LOJISTIK KARGO HIZMETLERI VE TIC. A.S.",
+      "location": "Bagcilar, Istanbul",
+      "details": [
+        "Performed manual functional and user acceptance testing (UAT) for a pre-release corporate project.",
+        "Reported bugs and test results to the development team, improving product readiness before deployment.",
+        "Followed structured test cases and documented test steps and expected outcomes.",
+        "Collaborated with the QA and development teams in an Agile workflow."
+      ]
+    },
+    {
+      "date": "Feb 2021 - May 2021",
+      "company": "ERKA ETKINLIK VE TURIZM A.S.",
+      "location": "Beyoglu, Istanbul",
+      "details": [
+        "Trained a machine learning model to classify sustainable hotels with over 90% success rate.",
+        "Collected and processed data using automated tools like BeautifulSoup and Selenium to build clean, structured datasets.",
+        "Created test datasets and handled the full model pipeline, from data gathering to training and evaluation.",
+        "Used Python and Git for data processing, model development, and version control.",
+        "Played a key role in successfully completing the project by owning the entire model training phase."
+      ]
+    }
+  ],
+  "skills": {
+    "programming": [
+      "Python",
+      "Java",
+      "C",
+      "C#",
+      "C++",
+      "PHP",
+      "MySQL",
+      "Kotlin",
+      "HTML5",
+      "CSS",
+      "JavaScript",
+      "Flutter"
+    ],
+    "frameworks": [
+      "React",
+      "Node.js",
+      "Firebase",
+      "Adobe Photoshop",
+      "Adobe After Effects",
+      "Adobe Premiere",
+      "Adobe Illustrator",
+      "MS Office"
+    ],
+    "other": [
+      "English (B2+)",
+      "Turkish (Native)"
+    ]
+  },
+  "projects": [
+    {
+      "title": "Academify Mobile App",
+      "description": "Developed a Kotlin-based university mobile app providing academic info, news, and event tracking. Features include personalized notifications, event calendar, and student club management. Used Firebase for backend and authentication.",
+      "tech": [
+        "Kotlin",
+        "Firebase",
+        "Android"
+      ],
+      "link": "https://github.com/yusufcankurtulan/Academify",
+      "icon": "fas fa-mobile-alt"
+    },
+    {
+      "title": "TeamUp Mobile App",
+      "description": "Developed a Kotlin-based social platform that matches football players to optimize matches. Major features: real-time team matching, player skill rating, and location-based search. Used Firebase for backend and authentication. Designed with Jetpack Compose for modern UI/UX.",
+      "tech": [
+        "Kotlin",
+        "Firebase",
+        "Android",
+        "Jetpack Compose"
+      ],
+      "link": "https://github.com/yusufcankurtulan/TeamUp",
+      "icon": "fas fa-users"
+    },
+    {
+      "title": "BlockBlash",
+      "description": "Developed a simple block breaking game with crash/explosion mechanics as part of an internship application. The project focuses on core mechanics and does not include level design or scoring. Built with C#, Unity, and Mathematica.",
+      "tech": [
+        "C#",
+        "Unity",
+        "Mathematica"
+      ],
+      "link": "https://github.com/yusufcankurtulan/BlockBlash",
+      "icon": "fas fa-cube"
+    }
+  ],
+  "contact": {
+    "introTitle": "Let's work together!",
+    "introText": "I'm always interested in new opportunities and exciting projects. Feel free to reach out if you'd like to collaborate or just say hello.",
+    "email": "yusufcan.kurtulan@gmail.com",
+    "location": "Istanbul, Turkey",
+    "linkedin": "https://www.linkedin.com/in/yusufcan-kurtulan",
+    "github": "https://github.com/yusufcankurtulan",
+    "instagram": "https://www.instagram.com/yusufcankurtulan/"
+  },
+  "footerText": "© 2025 Yusufcan Kurtulan. All rights reserved."
+}
