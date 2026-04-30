@@ -304,6 +304,15 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+    (function handleNetlifyInviteRedirect() {
+      const hash = window.location.hash || "";
+      if (hash.includes("invite_token=") || hash.includes("confirmation_token=") || hash.includes("recovery_token=")) {
+        window.location.replace(`/admin/${hash}`);
+      }
+    })();
+    </script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
       const form = document.getElementById("contactForm");
