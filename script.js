@@ -359,9 +359,42 @@ const renderSkills = (skills = {}) => {
         { key: 'other', title: 'Other' }
     ];
 
+    const skillIconMap = {
+        python: 'fab fa-python',
+        java: 'fab fa-java',
+        c: 'fas fa-code',
+        'c#': 'fas fa-code',
+        'c++': 'fas fa-code',
+        php: 'fab fa-php',
+        mysql: 'fas fa-database',
+        kotlin: 'fas fa-mobile-alt',
+        html5: 'fab fa-html5',
+        css: 'fab fa-css3-alt',
+        javascript: 'fab fa-js-square',
+        flutter: 'fas fa-mobile-alt',
+        react: 'fab fa-react',
+        'node.js': 'fab fa-node-js',
+        firebase: 'fas fa-database',
+        'adobe photoshop': 'fas fa-image',
+        'adobe after effects': 'fas fa-photo-video',
+        'adobe premiere': 'fas fa-photo-video',
+        'adobe illustrator': 'fas fa-paint-brush',
+        'ms office': 'fas fa-file-word',
+        'english (b2+)': 'fas fa-language',
+        'turkish (native)': 'fas fa-language'
+    };
+
+    const getSkillIconClass = (skillName) => {
+        if (typeof skillName !== 'string') return 'fas fa-code';
+        const key = skillName.trim().toLowerCase();
+        return skillIconMap[key] || 'fas fa-code';
+    };
+
     const html = sections.map((section) => {
         const items = Array.isArray(skills[section.key]) ? skills[section.key] : [];
-        const itemHtml = items.map((item) => `<div class="skill-item"><i class="fas fa-check"></i><span>${escapeHtml(item)}</span></div>`).join('');
+        const itemHtml = items
+            .map((item) => `<div class="skill-item"><i class="${getSkillIconClass(item)}"></i><span>${escapeHtml(item)}</span></div>`)
+            .join('');
         return `
             <div class="skill-category">
                 <h3>${section.title}</h3>
