@@ -3,9 +3,31 @@
 const navbar = document.querySelector('.navbar');
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
+let navLinks = document.querySelectorAll('.nav-link');
 
-const skillItems = document.querySelectorAll('.skill-item');
+const LOCALE_STORAGE_KEY = 'portfolio-locale';
+const SUPPORTED_LOCALES = ['en', 'tr'];
+
+const getStoredLocale = () => {
+    try {
+        const v = localStorage.getItem(LOCALE_STORAGE_KEY);
+        if (v && SUPPORTED_LOCALES.includes(v)) return v;
+    } catch (_) {
+        /* ignore */
+    }
+    return 'en';
+};
+
+const normalizeContentPayload = (data) => {
+    if (!data || typeof data !== 'object') return null;
+    if (data.en && data.tr) return data;
+    if (data.hero || data.about) return { en: data, tr: null };
+    return null;
+};
+
+let fullSiteContent = null;
+let currentLocale = getStoredLocale();
+let activeFormMessages = { success: 'Message sent successfully!', error: 'Failed to send message. Please try again.' };
 
 // Utility Functions
 const debounce = (func, wait) => {
@@ -46,10 +68,7 @@ class Navigation {
         // Hamburger menu toggle
         hamburger?.addEventListener('click', () => this.toggleMenu());
 
-        // Close menu when clicking on nav links
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => this.closeMenu());
-        });
+        this.refreshNavLinkRefs();
 
         // Navbar scroll effect
         window.addEventListener('scroll', debounce(() => this.handleScroll(), 10));
@@ -59,6 +78,15 @@ class Navigation {
             if (!hamburger?.contains(e.target) && !navMenu?.contains(e.target)) {
                 this.closeMenu();
             }
+        });
+    }
+
+    refreshNavLinkRefs() {
+        navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach((link) => {
+            if (link.dataset.navCloseBound) return;
+            link.dataset.navCloseBound = '1';
+            link.addEventListener('click', () => this.closeMenu());
         });
     }
 
@@ -110,14 +138,14 @@ class Navigation {
     }
 
     setupSmoothScrolling() {
-        navLinks.forEach(link => {
+        navLinks.forEach((link) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href')?.substring(1);
                 const targetSection = document.getElementById(targetId || '');
-                
+
                 if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
+                    const offsetTop = targetSection.offsetTop - 70;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -176,16 +204,19 @@ class SkillsManager {
         this.setupSkillAnimations();
     }
 
-    setupSkillAnimations() {
-        skillItems.forEach((item, index) => {
+    bindSkillItems() {
+        const items = document.querySelectorAll('#skillsGrid .skill-item');
+        items.forEach((item, index) => {
             item.addEventListener('mouseenter', () => this.animateSkill(item));
             item.addEventListener('mouseleave', () => this.resetSkill(item));
-            
-            // Stagger animation on load
             setTimeout(() => {
                 item.classList.add('fade-in');
-            }, index * 100);
+            }, index * 50);
         });
+    }
+
+    setupSkillAnimations() {
+        this.bindSkillItems();
     }
 
     animateSkill(item) {
@@ -349,14 +380,14 @@ const renderExperience = (experienceList = []) => {
     }).join('');
 };
 
-const renderSkills = (skills = {}) => {
+const renderSkills = (skills = {}, categoryTitles = {}) => {
     const grid = document.getElementById('skillsGrid');
     if (!grid || typeof skills !== 'object') return;
 
     const sections = [
-        { key: 'programming', title: 'Programming' },
-        { key: 'frameworks', title: 'Frameworks & Tools' },
-        { key: 'other', title: 'Other' }
+        { key: 'programming', title: categoryTitles.programming || 'Programming' },
+        { key: 'frameworks', title: categoryTitles.frameworks || 'Frameworks & Tools' },
+        { key: 'other', title: categoryTitles.other || 'Other' }
     ];
 
     const skillIconMap = {
@@ -387,7 +418,12 @@ const renderSkills = (skills = {}) => {
     const getSkillIconClass = (skillName) => {
         if (typeof skillName !== 'string') return 'fas fa-code';
         const key = skillName.trim().toLowerCase();
-        return skillIconMap[key] || 'fas fa-code';
+        if (skillIconMap[key]) return skillIconMap[key];
+        if ((/ingilizce|english/.test(key) && /b2/.test(key)) || key.includes('english (b2')) {
+            return 'fas fa-language';
+        }
+        if (/türk|turkish|native|ana dil/.test(key)) return 'fas fa-language';
+        return 'fas fa-code';
     };
 
     const html = sections.map((section) => {
@@ -439,6 +475,75 @@ const applyText = (id, value) => {
     if (el) el.textContent = value;
 };
 
+const applyUi = (ui) => {
+    if (!ui || typeof ui !== 'object') return;
+
+    const setText = (id, value) => {
+        if (typeof value !== 'string') return;
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+    };
+
+    if (ui.nav) {
+        setText('navHome', ui.nav.home);
+        setText('navAbout', ui.nav.about);
+        setText('navExperience', ui.nav.experience);
+        setText('navSkills', ui.nav.skills);
+        setText('navProjects', ui.nav.projects);
+        setText('navContact', ui.nav.contact);
+    }
+
+    if (ui.sections) {
+        setText('sectionTitleAbout', ui.sections.about);
+        setText('sectionTitleExperience', ui.sections.experience);
+        setText('sectionTitleSkills', ui.sections.skills);
+        setText('sectionTitleProjects', ui.sections.projects);
+        setText('sectionTitleContact', ui.sections.contact);
+    }
+
+    setText('heroGreeting', ui.heroGreeting);
+
+    if (ui.stats) {
+        setText('statLabelExperiences', ui.stats.experiences);
+        setText('statLabelProjects', ui.stats.projects);
+    }
+
+    if (ui.contactForm) {
+        setText('contactFormTitle', ui.contactForm.title);
+        const submitBtn = document.querySelector('#contactForm button[type="submit"]');
+        if (submitBtn && ui.contactForm.submit) submitBtn.textContent = ui.contactForm.submit;
+
+        const form = document.getElementById('contactForm');
+        const ph = ui.contactForm.placeholders;
+        if (form && ph) {
+            const nameInput = form.querySelector('[name="name"]');
+            const emailInput = form.querySelector('[name="email"]');
+            const subjectInput = form.querySelector('[name="subject"]');
+            const messageInput = form.querySelector('[name="message"]');
+            if (nameInput && ph.name) nameInput.placeholder = ph.name;
+            if (emailInput && ph.email) emailInput.placeholder = ph.email;
+            if (subjectInput && ph.subject) subjectInput.placeholder = ph.subject;
+            if (messageInput && ph.message) messageInput.placeholder = ph.message;
+        }
+    }
+
+    if (ui.formMessages) {
+        activeFormMessages = {
+            success: ui.formMessages.success || activeFormMessages.success,
+            error: ui.formMessages.error || activeFormMessages.error
+        };
+    }
+
+    if (typeof ui.pageTitle === 'string' && ui.pageTitle.length > 0) {
+        document.title = ui.pageTitle;
+    }
+
+    const langBtn = document.getElementById('langToggle');
+    if (langBtn && typeof ui.langToggle === 'string') {
+        langBtn.textContent = ui.langToggle;
+    }
+};
+
 const applyContent = (content) => {
     if (!content || typeof content !== 'object') return;
 
@@ -454,7 +559,7 @@ const applyContent = (content) => {
     applyText('aboutProjectsCount', content.about?.projectsCount);
 
     renderExperience(content.experiences);
-    renderSkills(content.skills);
+    renderSkills(content.skills, content.skillCategoryTitles || {});
     renderProjects(content.projects);
 
     applyText('contactIntroTitle', content.contact?.introTitle);
@@ -470,40 +575,132 @@ const applyContent = (content) => {
     if (linkedin && content.contact?.linkedin) linkedin.href = content.contact.linkedin;
     if (github && content.contact?.github) github.href = content.contact.github;
     if (instagram && content.contact?.instagram) instagram.href = content.contact.instagram;
+
+    applyUi(content.ui);
+
+    if (window.__skillsManager && typeof window.__skillsManager.bindSkillItems === 'function') {
+        window.__skillsManager.bindSkillItems();
+    }
+};
+
+const resolveLocale = (requested) => {
+    if (!fullSiteContent) return 'en';
+    let r = SUPPORTED_LOCALES.includes(requested) ? requested : 'en';
+    if (r === 'tr' && !fullSiteContent.tr) r = 'en';
+    return r;
+};
+
+const applyLanguage = (locale) => {
+    const next = resolveLocale(locale);
+    currentLocale = next;
+    try {
+        localStorage.setItem(LOCALE_STORAGE_KEY, next);
+    } catch (_) {
+        /* ignore */
+    }
+
+    const content = fullSiteContent ? fullSiteContent[next] || fullSiteContent.en : null;
+    if (!content || typeof content !== 'object') return;
+
+    document.documentElement.lang = next;
+    applyContent(content);
 };
 
 const loadDynamicContent = async () => {
     try {
         const response = await fetch('content.json', { cache: 'no-store' });
         if (!response.ok) return;
-        const content = await response.json();
-        applyContent(content);
+        const data = await response.json();
+        fullSiteContent = normalizeContentPayload(data);
+        if (!fullSiteContent) return;
+
+        applyLanguage(getStoredLocale());
     } catch (error) {
         console.error('Failed to load content.json', error);
     }
 };
 
+const showFormNotification = (message, type) => {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 1rem 1.5rem;
+          border-radius: 8px;
+          color: white;
+          font-weight: 500;
+          z-index: 10000;
+          transform: translateX(100%);
+          transition: transform 0.3s ease;
+          ${type === 'success' ? 'background: #10b981;' : 'background: #ef4444;'}
+        `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) notification.parentNode.removeChild(notification);
+        }, 300);
+    }, 5000);
+};
+
+const initContactForm = () => {
+    const form = document.getElementById('contactForm');
+    if (!form || form.dataset.bound === '1') return;
+    form.dataset.bound = '1';
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const action = form.action;
+        const data = new FormData(form);
+        try {
+            const response = await fetch(action, {
+                method: 'POST',
+                body: data,
+                headers: { Accept: 'application/json' }
+            });
+            if (response.ok) {
+                form.reset();
+                showFormNotification(activeFormMessages.success, 'success');
+            } else {
+                showFormNotification(activeFormMessages.error, 'error');
+            }
+        } catch {
+            showFormNotification(activeFormMessages.error, 'error');
+        }
+    });
+};
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadDynamicContent();
-    // Initialize all classes
     new Navigation();
     new AnimationManager();
-    new SkillsManager();
+    const skillsManager = new SkillsManager();
+    window.__skillsManager = skillsManager;
 
-    
-    // Optional: Add particle background
-    // new ParticleBackground();
-    
-    // Optional: Add typing animation to hero title
-    
-    // Add animation classes to elements
+    initContactForm();
+
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            if (!fullSiteContent) return;
+            const target = currentLocale === 'en' ? 'tr' : 'en';
+            if (target === 'tr' && !fullSiteContent.tr) return;
+            applyLanguage(target);
+        });
+    }
+
     const animationManager = new AnimationManager();
-    document.querySelectorAll('.project-card').forEach((card, index) => {
+    document.querySelectorAll('.project-card').forEach((card) => {
         animationManager.addAnimationClass(card, 'slide-in-left');
     });
-    
-    document.querySelectorAll('.skill-category').forEach((category, index) => {
+
+    document.querySelectorAll('.skill-category').forEach((category) => {
         animationManager.addAnimationClass(category, 'fade-in');
     });
 }); 

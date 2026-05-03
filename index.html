@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusucan kurtulan - Personal Website</title>
+    <title>Yusufcan Kurtulan — Personal Website</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,30 +18,33 @@
                     <img src="logo.png" alt="Logo" style="height:40px; width:auto;" onerror="this.src='logo.svg'">
                 </a>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-end">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link" id="navHome">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" id="navAbout">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#experience" class="nav-link" id="navExperience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link" id="navSkills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link" id="navProjects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" id="navContact">Contact</a>
+                    </li>
+                </ul>
+                <button type="button" class="lang-toggle" id="langToggle" aria-label="Dil değiştir / Change language">Türkçe</button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -51,7 +54,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <div class="line">Hi, I'm</div>
+                    <div class="line" id="heroGreeting">Hi, I'm</div>
                     <div class="line highlight" id="heroName">Yusufcan Kurtulan</div>
                   </h1>
                   
@@ -80,7 +83,7 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" id="sectionTitleAbout">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p id="aboutParagraph1">
@@ -92,11 +95,11 @@
                     <div class="about-stats">
                         <div class="stat">
                             <h3 id="aboutExperiencesCount">3</h3>
-                            <p>Experiences</p>
+                            <p id="statLabelExperiences">Experiences</p>
                         </div>
                         <div class="stat">
                             <h3 id="aboutProjectsCount">10+</h3>
-                            <p>Projects</p>
+                            <p id="statLabelProjects">Projects</p>
                         </div>
                     </div>
                 </div>
@@ -107,7 +110,7 @@
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
+            <h2 class="section-title" id="sectionTitleExperience">Experience</h2>
             <div class="experience-timeline" id="experienceTimeline">
                 <div class="experience-item">
                     <div class="experience-date">Jul 2023 – Sep 2023</div>
@@ -143,7 +146,7 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2 class="section-title" id="sectionTitleSkills">Skills & Technologies</h2>
             <div class="skills-grid" id="skillsGrid">
                 <div class="skill-category">
                     <h3>Programming</h3>
@@ -189,7 +192,7 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title" id="sectionTitleProjects">Featured Projects</h2>
             <div class="projects-grid" id="projectsGrid">
                 <div class="project-card">
                     <div class="project-image">
@@ -250,7 +253,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title" id="sectionTitleContact">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3 id="contactIntroTitle">Let's work together!</h3>
@@ -275,7 +278,7 @@
                 
                 <!-- Contact Form -->
                 <div class="contact-form">
-                    <h3>Send me a message</h3>
+                    <h3 id="contactFormTitle">Send me a message</h3>
                     <form id="contactForm" action="https://formspree.io/f/xldleqwp" method="POST">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -312,66 +315,6 @@
         window.location.replace(`/admin/${hash}`);
       }
     })();
-    </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const form = document.getElementById("contactForm");
-      if (form) {
-        form.addEventListener("submit", async function(e) {
-          e.preventDefault();
-          const data = new FormData(form);
-          const action = form.action;
-          const response = await fetch(action, {
-            method: "POST",
-            body: data,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-          if (response.ok) {
-            form.reset();
-            showSuccessMessage();
-          } else {
-            showErrorMessage();
-          }
-        });
-      }
-
-      function showSuccessMessage() {
-        showNotification("Message sent successfully!", "success");
-      }
-      function showErrorMessage() {
-        showNotification("Failed to send message. Please try again.", "error");
-      }
-      function showNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.style.cssText = `
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          padding: 1rem 1.5rem;
-          border-radius: 8px;
-          color: white;
-          font-weight: 500;
-          z-index: 10000;
-          transform: translateX(100%);
-          transition: transform 0.3s ease;
-          ${type === 'success' ? 'background: #10b981;' : 'background: #ef4444;'}
-        `;
-        notification.textContent = message;
-        document.body.appendChild(notification);
-        setTimeout(() => {
-          notification.style.transform = 'translateX(0)';
-        }, 100);
-        setTimeout(() => {
-          notification.style.transform = 'translateX(100%)';
-          setTimeout(() => {
-            document.body.removeChild(notification);
-          }, 300);
-        }, 5000);
-      }
-    });
     </script>
 </body>
 </html>
